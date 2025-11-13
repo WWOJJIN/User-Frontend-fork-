@@ -339,9 +339,9 @@
 
 .room-booking-selector {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.2rem;
   margin-bottom: 3.2rem;
-  padding: 2rem;
+  padding: 1.6rem;
   background: rgba(255, 255, 255, 0.92);
   border-radius: 1.6rem;
   border: 0.1rem solid var(--border);
@@ -349,21 +349,27 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 1.2rem;
   }
 
   .field {
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    padding: 1.6rem;
-    border-radius: 1.4rem;
+    padding: 1.6rem 2rem;
+    border-radius: 1.2rem;
     background: #ffffff;
     border: 0.1rem solid rgba(36, 64, 56, 0.1);
     box-shadow: inset 0 0 0 0.1rem rgba(36, 64, 56, 0.04);
     font-size: 1.4rem;
     position: relative;
-    min-height: 8rem;
+    min-height: 7.2rem;
+    min-width: 20rem;
     flex: 1;
+
+    @media (max-width: 768px) {
+      min-width: auto;
+    }
 
     svg {
       font-size: 2rem;
@@ -404,10 +410,13 @@
     position: relative;
     display: flex;
     gap: 1.2rem;
-    flex: 2;
+    flex: 1.8;
+    min-width: 0;
 
     @media (max-width: 768px) {
       flex-direction: column;
+      flex: 1;
+      min-width: auto;
     }
   }
 
@@ -576,6 +585,7 @@
       min-width: 2.4rem;
       text-align: center;
       font-weight: 600;
+      color: var(--text);
     }
   }
 
@@ -629,9 +639,14 @@
 
 .rooms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: 2.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+  gap: 2rem;
   margin-bottom: 2.4rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 .rooms-load-more {

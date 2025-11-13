@@ -308,6 +308,7 @@ const HotelDetail = () => {
   const checkOutFieldRef = useRef(null);
   const calendarRef = useRef(null);
   const guestRef = useRef(null);
+  const roomsSectionRef = useRef(null);
 
   const hotel = useMemo(() => {
     return allHotelsData.find((h) => h.id === parseInt(id));
@@ -462,6 +463,10 @@ const HotelDetail = () => {
     setGuestOpen(false);
   };
 
+  const handleBookButtonClick = () => {
+    roomsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   // 찜하기 기능
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
@@ -594,7 +599,7 @@ const HotelDetail = () => {
           </div>
           <div className="price-section">
             <span className="price">₩{hotel.price.toLocaleString()}/night</span>
-            <button className="btn primary book-button">예약하기</button>
+            <button className="btn primary book-button" onClick={handleBookButtonClick}>예약하기</button>
           </div>
         </div>
       </div>
@@ -627,7 +632,7 @@ const HotelDetail = () => {
       </section>
 
       {/* Available Rooms Section */}
-      <section className="rooms-section">
+      <section className="rooms-section" ref={roomsSectionRef}>
         <h2 className="section-title">잔여 객실</h2>
         
         {/* 날짜 및 게스트 선택 박스 */}
@@ -819,7 +824,6 @@ const HotelDetail = () => {
                   <span><FiUsers /> 침실 {room.bedrooms}개</span>
                   <span><FiUsers /> 침대 {room.beds}개</span>
                   <span><FiUsers /> 욕실 {room.bathrooms}개</span>
-                  {room.bathtub && <span>욕조 있음</span>}
                 </div>
                 <div className="room-capacity">
                   <span><FiUsers /> 최대 {room.capacity}명 / 기준 {room.capacityStandard}명</span>
@@ -987,11 +991,6 @@ const HotelDetail = () => {
                     <FiUsers />
                     <span>욕실: {selectedRoom.bathrooms}개</span>
                   </div>
-                  {selectedRoom.bathtub && (
-                    <div className="detail-item">
-                      <span>욕조: 있음</span>
-                    </div>
-                  )}
                   <div className="detail-item">
                     <FiClock />
                     <span>체크인: {selectedRoom.checkIn}</span>

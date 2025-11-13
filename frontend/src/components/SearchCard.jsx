@@ -107,12 +107,13 @@ const SearchCard = () => {
     setCalendarOpen(false);
   };
 
-  const handleApplyGuests = () => {
-    setGuestOpen(false);
-  };
 
   const handleResetDates = () => {
     setDateRange({ from: undefined, to: undefined });
+  };
+
+  const handleApplyGuests = () => {
+    setGuestOpen(false);
   };
 
   const handleSearch = () => {
