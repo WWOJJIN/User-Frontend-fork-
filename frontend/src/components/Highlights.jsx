@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { allHotelsData } from '../pages/SearchResults';
 import './style/Highlights.scss';
+import { useNavigate } from 'react-router-dom';
 
 // 랜덤으로 숙소 추천 (매번 다른 숙소 표시)
 const getRandomHotels = () => {
@@ -11,6 +12,7 @@ const getRandomHotels = () => {
 
 const Highlights = () => {
   const recommendedHotels = useMemo(() => getRandomHotels(), []);
+  const navigate = useNavigate();
 
   return (
     <section className="section">
@@ -19,7 +21,6 @@ const Highlights = () => {
           <span className="section-badge">숙소 추천</span>
           <h2 className="section-title">인기 있는 숙소를 확인하고 예약해보세요</h2>
         </div>
-        <button className="btn see-all">전체보기</button>
       </div>
 
       <div className="card-grid">
@@ -35,7 +36,10 @@ const Highlights = () => {
               <h3>{hotel.name}</h3>
               <p>{hotel.address}</p>
               <span className="price">₩{hotel.price.toLocaleString()}</span>
-              <button className="btn action-button">
+              <button
+                className="btn action-button"
+                onClick={() => navigate(`/hotel/${hotel.id}`)}
+              >
                 숙소 예약 <FiArrowRight />
               </button>
             </div>

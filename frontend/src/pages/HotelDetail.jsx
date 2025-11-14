@@ -467,6 +467,17 @@ const HotelDetail = () => {
     roomsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const handleRoomBooking = (roomId, e) => {
+    e.stopPropagation();
+    const params = new URLSearchParams();
+    if (checkIn) params.set('checkIn', format(checkIn, 'yyyy-MM-dd'));
+    if (checkOut) params.set('checkOut', format(checkOut, 'yyyy-MM-dd'));
+    params.set('rooms', guestOption.rooms.toString());
+    params.set('guests', guestOption.guests.toString());
+    
+    navigate(`/hotel/${id}/booking/${roomId}?${params.toString()}`);
+  };
+
   // 찜하기 기능
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
@@ -553,7 +564,8 @@ const HotelDetail = () => {
   return (
     <div className="hotel-detail-page">
       <Header />
-      
+      <div className="hotel-detail-content">
+
       {/* Breadcrumbs */}
       <div className="breadcrumbs">
         {(() => {
@@ -834,7 +846,7 @@ const HotelDetail = () => {
                 </div>
                 <div className="room-price-section">
                   <span className="room-price">₩{room.price.toLocaleString()}/night</span>
-                  <button className="btn primary">예약하기</button>
+                  <button className="btn primary" onClick={(e) => handleRoomBooking(room.id, e)}>예약하기</button>
                 </div>
               </div>
             </div>
@@ -965,6 +977,7 @@ const HotelDetail = () => {
           </div>
         )}
       </section>
+      </div>
 
       {/* Room Detail Modal */}
       {selectedRoom && (
@@ -1010,7 +1023,7 @@ const HotelDetail = () => {
                 </div>
                 <div className="room-modal-price">
                   <span className="price">₩{selectedRoom.price.toLocaleString()}/night</span>
-                  <button className="btn primary">예약하기</button>
+                  <button className="btn primary" onClick={(e) => handleRoomBooking(selectedRoom.id, e)}>예약하기</button>
                 </div>
               </div>
             </div>

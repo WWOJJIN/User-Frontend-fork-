@@ -5,8 +5,16 @@
   background: var(--surface);
 }
 
+.hotel-detail-content {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
 .breadcrumbs {
-  padding: 1.6rem 5%;
+  padding: 1.6rem 0;
   font-size: 1.4rem;
   color: #d32f2f;
   display: flex;
@@ -31,7 +39,7 @@
 }
 
 .hotel-header {
-  padding: 2.4rem 5%;
+  padding: 2.4rem 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -172,7 +180,7 @@
 
 // Image Gallery
 .image-gallery {
-  padding: 2.4rem 5%;
+  padding: 2.4rem 0;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 1.6rem;
@@ -237,7 +245,7 @@
 
 // Overview Section
 .overview-section {
-  padding: 4rem 5%;
+  padding: 4rem 0;
   border-bottom: 0.1rem solid var(--border);
 }
 
@@ -333,7 +341,7 @@
 
 // Rooms Section
 .rooms-section {
-  padding: 4rem 5%;
+  padding: 4rem 0;
   border-bottom: 0.1rem solid var(--border);
 }
 
@@ -612,14 +620,10 @@
     padding: 0.8rem 1.6rem;
     border-radius: 1.2rem;
     border: none;
-    background: #e5f1ea;
-    color: #2f4d42;
+    background: var(--primary);
+    color: var(--primary-contrast);
     font-weight: 600;
     cursor: pointer;
-
-    &:hover {
-      background: #d6e7dd;
-    }
   }
 
   .btn.apply {
@@ -630,10 +634,6 @@
     color: var(--primary-contrast);
     font-weight: 600;
     cursor: pointer;
-
-    &:hover {
-      background: var(--primary-hover);
-    }
   }
 }
 
@@ -852,7 +852,7 @@
 
 // Map Section
 .map-section {
-  padding: 4rem 5%;
+  padding: 4rem 0;
   border-bottom: 0.1rem solid var(--border);
 }
 
@@ -892,7 +892,7 @@
 
 // Amenities Section
 .amenities-section {
-  padding: 4rem 5%;
+  padding: 4rem 0;
   border-bottom: 0.1rem solid var(--border);
 }
 
@@ -953,7 +953,7 @@
 
 // Reviews Section
 .reviews-section {
-  padding: 4rem 5%;
+  padding: 4rem 0;
   border-bottom: 0.1rem solid var(--border);
 }
 

@@ -54,7 +54,7 @@
   padding: 0.8rem 1.6rem;
   border: none;
   border-radius: var(--radius-s);
-  background: transparent;
+  background: #ffffff;
   color: var(--text);
   font-size: 1.4rem;
   font-weight: 600;
@@ -63,9 +63,10 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  box-shadow: 0 0.4rem 1rem rgba(20, 40, 33, 0.06);
 
   &:hover {
-    background: var(--surface);
+    box-shadow: 0 0.6rem 1.6rem rgba(20, 40, 33, 0.12);
   }
 
   &.active {

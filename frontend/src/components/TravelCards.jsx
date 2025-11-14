@@ -56,7 +56,6 @@ const TravelCards = () => {
           <span className="section-badge">나라 추천</span>
           <h2 className="section-title">인기있는 여행지를 확인해보세요</h2>
         </div>
-        <button className="btn see-all">전체보기</button>
       </div>
 
       <div className="card-grid">

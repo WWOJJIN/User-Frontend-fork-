@@ -5,6 +5,8 @@ import Landing from './pages/Landing';
 import SearchResults from './pages/SearchResults';
 import Favorites from './pages/Favorites';
 import HotelDetail from './pages/HotelDetail';
+import Booking from './pages/Booking';
+import BookingConfirmation from './pages/BookingConfirmation';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/search" element={<SearchResults />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/hotel/:id" element={<HotelDetail />} />
+        <Route path="/hotel/:id/booking/:roomId" element={<Booking />} />
+        <Route path="/booking-confirmation" element={<BookingConfirmation />} />
       </Routes>
     </div>
   );

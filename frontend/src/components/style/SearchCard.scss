@@ -446,14 +446,10 @@
   padding: 0.8rem 1.6rem;
   border-radius: 1.2rem;
   border: none;
-  background: #e5f1ea;
-  color: #2f4d42;
+  background: var(--primary);
+  color: var(--primary-contrast);
   font-weight: 600;
   cursor: pointer;
-
-  &:hover {
-    background: #d6e7dd;
-  }
 }
 
 .btn.apply {
@@ -464,9 +460,5 @@
   color: var(--primary-contrast);
   font-weight: 600;
   cursor: pointer;
-
-  &:hover {
-    background: var(--primary-hover);
-  }
 }
 
